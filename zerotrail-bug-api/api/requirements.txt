@@ -1,6 +1,0 @@
-fastapi
-pydantic
-mangum
-google-generativeai
-uvicorn
-requests
