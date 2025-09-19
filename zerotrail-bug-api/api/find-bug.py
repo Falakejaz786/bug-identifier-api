@@ -45,7 +45,6 @@ Code:
         response = model.generate_content(prompt)
         text = response.candidates[0].content.parts[0].text if response.candidates else ""
 
-        # Strip Markdown ```json ... ``` if present
         cleaned = re.sub(r"^```json\s*|\s*```$", "", text.strip(), flags=re.MULTILINE)
 
         try:
@@ -57,3 +56,4 @@ Code:
 
     except Exception as e:
         return {"result": {"bug_type": "Error", "description": str(e), "suggestion": "Check API key or model"}}
+
