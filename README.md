@@ -1,6 +1,3 @@
-Here’s a clean, minimal, and professional **README.md** for your project:
-
-```markdown
 # AI Bug Identifier
 
 A simple web app that uses Google Gemini AI to analyze code snippets and identify potential bugs (logic, runtime, edge-case, or off-by-one errors).
@@ -22,9 +19,7 @@ zerotrail-bug-api/
 │── frontend/
 │   └── index.html
 │── requirements.txt
-│── vercel.json
 │── README.md
-│── .gitignore
 
 ````
 
@@ -47,7 +42,6 @@ pip install -r requirements.txt
 
 ```bash
 setx GOOGLE_API_KEY "YOUR_API_KEY"   # Windows
-export GOOGLE_API_KEY="YOUR_API_KEY" # Linux/macOS
 ```
 
 4. Start the backend:
@@ -73,7 +67,7 @@ python -m uvicorn api.find-bug:app --reload
 * uvicorn
 * pydantic
 * google-generativeai
-* python-dotenv (optional, for local env management)
+* python-dotenv
 
 ## Notes
 
