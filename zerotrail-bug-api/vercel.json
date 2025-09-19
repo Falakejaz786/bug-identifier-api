@@ -1,0 +1,10 @@
+{
+  "builds": [
+    { "src": "api/find-bug.py", "use": "@vercel/python" },
+    { "src": "frontend/index.html", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/find-bug", "dest": "api/find-bug.py" },
+    { "src": "/", "dest": "frontend/index.html" }
+  ]
+}
