@@ -21,14 +21,14 @@ print(is_even(4))</textarea><br><br>
             resultEl.textContent = "Checking...";
 
             try {
-                const response = await fetch("/api/find-bug", {
+                const response = await fetch("http://127.0.0.1:8000/find-bug", {
                     method: "POST",
                     headers: {"Content-Type": "application/json"},
                     body: JSON.stringify({code, language})
                 });
 
                 const data = await response.json();
-                resultEl.textContent = JSON.stringify(data, null, 2);
+                resultEl.textContent = JSON.stringify(data.result, null, 2);
             } catch (err) {
                 resultEl.textContent = "Error: " + err;
             }
@@ -36,4 +36,3 @@ print(is_even(4))</textarea><br><br>
     </script>
 </body>
 </html>
-
