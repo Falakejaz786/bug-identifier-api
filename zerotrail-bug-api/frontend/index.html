@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Bug Identifier</title>
+</head>
+<body>
+    <h2>AI Bug Identifier</h2>
+    <textarea id="code" rows="10" cols="50">def is_even(n):
+    return n % 2 == 1
+print(is_even(4))</textarea><br><br>
+    <input id="language" placeholder="Language (default: python)" value="python"><br><br>
+    <button onclick="checkBug()">Check Bug</button>
+    <h3>Result:</h3>
+    <pre id="result"></pre>
+
+    <script>
+        async function checkBug() {
+            const code = document.getElementById("code").value;
+            const language = document.getElementById("language").value || "python";
+            const resultEl = document.getElementById("result");
+            resultEl.textContent = "Checking...";
+
+            try {
+                const response = await fetch("http://127.0.0.1:8000/find-bug", {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({code, language})
+                });
+
+                const data = await response.json();
+                resultEl.textContent = JSON.stringify(data.result, null, 2);
+            } catch (err) {
+                resultEl.textContent = "Error: " + err;
+            }
+        }
+    </script>
+</body>
+</html>
